@@ -1,9 +1,9 @@
-import React from "react";
+import React, {Component} from "react";
 import ChatBot from 'react-simple-chatbot';
 interface State {
     name: string
 }
-class MyChatBot extends React.Component<State>{
+class MyChatBot extends Component<State>{
     state: State = {
         name: ''
     }
