@@ -1,6 +1,7 @@
 import hello, {goodbye, birthday, add} from "./hello";
 import jsTypes,{tsTypes, symbolType, tupleType} from "./jsTypes";
-let menu: number = 3
+import operator from "./operator";
+let menu: number = 4
 let name, profile: string = ""
 switch (menu) {
     case 0:
@@ -22,9 +23,12 @@ switch (menu) {
         break
     case 3: // 자바스크립트 타입 출력
         // jsTypes()
-        // tsTypes()
+        tsTypes()
         // symbolType()
-        tupleType()
+        // tupleType()
+        break
+    case 4:
+        operator()
         break
     default :
         console.log("존재하지 않는 케이스입니다.")

@@ -62,6 +62,9 @@ export function tsTypes():void {
     console.log(`10. ${typeof myDay2}, ${myDay2}`)
 }
 export function symbolType(): void {
+    /**
+     * 유일한 토큰, 항상 유일한 값, 객체와 유사
+     * */
     const hello = Symbol("hello")
     const hello2 = Symbol("hello")
     // @ts-ignore
