@@ -1,6 +1,6 @@
 import hello, {goodbye, birthday, add} from "./hello";
-
-let menu: number = 1
+import jsTypes,{tsTypes, symbolType, tupleType} from "./jsTypes";
+let menu: number = 3
 let name, profile: string = ""
 switch (menu) {
     case 0:
@@ -11,7 +11,7 @@ switch (menu) {
     case 1:
         name = "김유신"
         let year:number = 2002
-        profile = birthday(name,year)
+        profile = JSON.stringify(birthday(name,year))
         console.log(profile)
         break
     case 2:
@@ -19,6 +19,12 @@ switch (menu) {
         let num2:number = 30
         let addResult: number = add(num1, num2)
         console.log(`덧셈결과:  ${addResult}`)
+        break
+    case 3: // 자바스크립트 타입 출력
+        // jsTypes()
+        // tsTypes()
+        // symbolType()
+        tupleType()
         break
     default :
         console.log("존재하지 않는 케이스입니다.")
