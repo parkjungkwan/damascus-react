@@ -1,6 +1,6 @@
 import hello, {goodbye, birthday, add} from "./hello";
 import jsTypes,{tsTypes, symbolType, tupleType} from "./jsTypes";
-import operator from "./operator";
+import operator, {destructure} from "./operator";
 let menu: number = 4
 let name, profile: string = ""
 switch (menu) {
@@ -28,7 +28,8 @@ switch (menu) {
         // tupleType()
         break
     case 4:
-        operator()
+        // operator()
+        destructure()
         break
     default :
         console.log("존재하지 않는 케이스입니다.")

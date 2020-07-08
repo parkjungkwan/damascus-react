@@ -18,10 +18,10 @@ export function destructure() {
     console.log(`[num1, num2] ==> ${num1}, ${num2}`)
 
     let [,, num3, num4,] = numbers
-    // @ts-ignore
     console.log(`[,, num3, num4] ==> ${num3}, ${num4}`)
     // 디스트럭처링을 이용한 변수 값 교체
-   // [num4, num3] = [num3, num4]
+    console.log(`**[num4, num3] = [num3, num4] 에서 num4 에러 발생`)
+    //[num4, num3] = [num3, num4]
     console.log(`[num4, num3] = [num3, num4] ==>  ${num3}, ${num4}`)
     console.log(`[,, num3, num4] ==> ${num3}, ${num4}`)
     console.log(`--- 3. 함수 배열 구조분해 ----`)
