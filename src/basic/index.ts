@@ -1,6 +1,7 @@
 import hello, {goodbye, birthday, add} from "./hello";
 import jsTypes,{tsTypes, symbolType, tupleType} from "./jsTypes";
 import operator,{spread} from "./operator";
+import loop from "./loop";
 let menu: number = 4
 let name, profile: string = ""
 switch (menu) {
@@ -29,7 +30,8 @@ switch (menu) {
         break
     case 4:
         // operator()
-        spread()
+        // spread()
+        loop()
         break
     default :
         console.log("존재하지 않는 케이스입니다.")
