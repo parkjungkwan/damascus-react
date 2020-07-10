@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {Counter, HelloName, Clock, Cat, MyChatBot} from "./components";
+import {Provider} from 'react-redux';
+import {ConnectedRouter} from 'connected-react-router';
 import {Home} from "./pages";
 import './App.css';
 
@@ -19,8 +21,7 @@ class App extends Component<any, any>{
                     <Route exact path='/chat' component={MyChatBot}/>
                     <Route exact path='/cat' component={Cat}/>
                     <Route exact path='/clock' component={Clock}/>
-                    <Route exact path='/counter'><Counter startNumber={0}/></Route>
-                    <Route exact path='/hello'><HelloName name={"홍길동"}/></Route>
+                    <Route exact path='/counter'><Counter/></Route>
                 </Router>
         </div>
     }
