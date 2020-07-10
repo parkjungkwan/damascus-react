@@ -2,7 +2,10 @@ import React, {Component} from "react";
 interface CounterProps {
     startNumber: number
 }
-class Counter extends Component<CounterProps>{
+interface CounterStates {
+    number: number
+}
+class Counter extends Component<CounterProps, CounterStates>{
     public state = {number: 0}
     props: any
 

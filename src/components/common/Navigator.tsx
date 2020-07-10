@@ -4,7 +4,9 @@ class Navigator extends Component<any, any>{
     public render() {
         return <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
             {/*Brand*/}
-            <a className="navbar-brand" href="#">Logo</a>
+            <a className="navbar-brand" href="#">
+                <span className="glyphicon glyphicon-home"></span>
+            </a>
             {/*Links*/}
             <ul className="navbar-nav">
                 <li className="nav-item">
