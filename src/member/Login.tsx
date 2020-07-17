@@ -23,7 +23,7 @@ function loginReducer(payload, userActions) {
             }
         case loginConstants.LOGIN_FAILURE:
             return {
-                logginIn: true,
+                logginIn: false,
                 user: userActions.user
             }
     }
