@@ -1,7 +1,54 @@
 import React, {Component} from "react";
 import '../../assets/login.css'
-
 import {connect} from "react-redux";
+
+export const userConstants = {
+    LOGIN_REQUEST: 'USER_LOGIN_REQUEST',
+    LOGIN_SUCCESS: 'USER_LOGIN_SUCCESS',
+    LOGIN_FAILURE: 'USER_LOGIN_FAILURE'
+}
+
+export function login(userid, password) {
+    alert(`ID: ${userid}, PW: ${password}`)
+    loginService(userid, password)
+
+    return dispatch =>{
+        dispatch(request(userid))
+    }
+
+    const request = user => { return { type: userConstants.LOGIN_REQUEST, user}}
+    const success = user => { return { type: userConstants.LOGIN_SUCCESS, user}}
+    const failure = user => { return { type: userConstants.LOGIN_FAILURE, user}}
+}
+function handleResponse(response) {
+    return response.text()
+        .then(text =>{
+            const data = text && JSON.parse(text)
+            if(!response.ok){
+                if(response.status === 401){
+                    window.location.reload()
+                }
+                const error = (data && data.message) ||
+                    response.statusText
+                return Promise.reject(error)
+            }
+            return data
+        })
+}
+export function loginService(userid, password) {
+    alert(` loginService 진입 `)
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({userid,password})
+    }
+    return fetch(`https://facebook.github.io/react-native/movies.json`, requestOptions)
+        .then(handleResponse)
+        .then(user => {
+            alert(` json 읽기 성공 `)
+            localStorage.setItem('user', JSON.stringify(user))
+        })
+}
 
 class Login extends Component<any, any>{
     constructor(props) {
@@ -74,8 +121,5 @@ function mapStateToProps(state) {
     const { loggingIn } = state.userReducers
     return { loggingIn}
 }
-const actionCreators = {
-    login: userActions.login
-}
-const connectedLoginPage = connect(mapStateToProps, actionCreators)(Login)
+const connectedLoginPage = connect(mapStateToProps, {login})(Login)
 export { connectedLoginPage as Login }
