@@ -1,7 +1,0 @@
-export { default as Home } from '../pages/home/Home'
-export { default as MyChatBot } from './oop/MyChatBot'
-export { default as Navigator } from './common/Navigator'
-export { default as Clock } from '../components/oop/Clock'
-export { default as Counter } from '../components/oop/Counter'
-export { default as HelloName } from '../components/oop/HelloName'
-export { default as Cat } from '../components/oop/Cat'

@@ -1,6 +1,6 @@
 import {createStore} from 'redux'
 import { createBrowserHistory } from 'history'
-import reducers from "../reducers";
+import reducers from "../volunteer";
 /* redux devtools 때문에 js 파일로 대체함 */
 export const history = createBrowserHistory()
 

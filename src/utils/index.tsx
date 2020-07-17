@@ -1,8 +1,8 @@
 import React from "react";
 import {Redirect} from 'react-router-dom'
-import {Home} from '../pages'
-import {Cat, Clock, MyChatBot} from '../components'
-import AdvancedCounter from "../components/fp/AdvancedCounter";
+import {Home} from '../progress'
+import {Cat, Clock, MyChatBot} from '../_components'
+import AdvancedCounter from "../_components/fp/AdvancedCounter";
 
 const routerConfig = [
     { path: '/', exact: true, component: () => <Redirect to="/home"/> },
