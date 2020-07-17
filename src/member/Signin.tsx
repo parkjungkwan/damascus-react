@@ -1,28 +1,28 @@
 import React, { useState } from "react";
-const loginActions = {
-    REQUEST: 'login/REQUEST',
-    SUCCESS: 'login/SUCCESS',
-    FAILURE: 'login/FAILURE'
+const signinActions = {
+    REQUEST: 'signin/REQUEST',
+    SUCCESS: 'signin/SUCCESS',
+    FAILURE: 'signin/FAILURE'
 }
-export function request(user) {return {type: loginActions.REQUEST, user}}
-export function success(user) {return {type: loginActions.SUCCESS, user}}
-export function failure(error) {return {type: loginActions.FAILURE, error}}
+export function request(member) {return {type: signinActions.REQUEST, member}}
+export function success(member) {return {type: signinActions.SUCCESS, member}}
+export function failure(error) {return {type: signinActions.FAILURE, error}}
 
 const initialState = {
     userid: '',
     password: ''
 };
-export default function login(state=initialState, action) {
+export default function signin(state=initialState, action) {
     switch (action.type) {
-        case loginActions.REQUEST:
+        case signinActions.REQUEST:
             return {
                 ...state
             }
-        case loginActions.SUCCESS:
+        case signinActions.SUCCESS:
             return {
                 ...state
             }
-        case loginActions.FAILURE:
+        case signinActions.FAILURE:
             return {
                 ...state
             }
@@ -48,9 +48,9 @@ function handleResponse(response) {
 }
 
 
-function logoutService(){}
+function logout(){}
 
-function loginService() {
+function login() {
     const userid = ''
     const password = ''
     alert(` loginService 진입 `)
@@ -67,7 +67,7 @@ function loginService() {
         })
 }
 
-const Login:React.FC = () => {
+const Signin:React.FC = () => {
     const [userid, setUserid] = useState("")
     const [password, setPassword] = useState("")
 
@@ -91,7 +91,7 @@ const Login:React.FC = () => {
                            onChange={e=>setPassword(e.target.value)}
                     />
 
-                    <button onClick={loginService}>Login</button>
+                    <button onClick={login}>Login</button>
                     <label>
                         <input type="checkbox" checked={true} name="remember"/> Remember me
                     </label>

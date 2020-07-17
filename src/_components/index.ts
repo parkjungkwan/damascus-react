@@ -1,4 +1,3 @@
-export { default as Home } from '../progress/home/Home'
 export { default as MyChatBot } from './oop/MyChatBot'
 export { default as Navigator } from '../common/Navigator'
 export { default as Clock } from './/oop/Clock'

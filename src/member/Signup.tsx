@@ -1,44 +1,35 @@
 import React, {useState} from 'react';
 import {MDBBtn, MDBInput} from 'mdbreact'
-/*Commands-> 액션과 리듀서를 연결*/
-const signUpConstants = {
-    SIGNUP_REQUEST: 'USER_SIGNUP_REQUEST',
-    SIGNUP_SUCCESS: 'USER_SIGNUP_SUCCESS',
-    SIGNUP_FAILURE: 'USER_SIGNUP_FAILURE'
-    //삼위일체
+const signupActions = {
+    REQUEST: 'signup/REQUEST',
+    SUCCESS: 'signup/SUCCESS',
+    FAILURE: 'signup/FAILURE'
 }
+export function request(member) { return {type: signupActions.REQUEST, member} }
+export function success(member) { return {type: signupActions.SUCCESS, member} }
+export function failuer(error) { return {type: signupActions.FAILURE, error}}
 
-/*Reducers*/
-function signUpReducer(payload, userActions) {
-    switch (userActions) {
-        case signUpConstants.SIGNUP_REQUEST:
+const initialState = { userid: '', password: '', name: ''}
+
+export default function signup( state = initialState, action) {
+    switch (action.type) {
+        case signupActions.REQUEST:
             return {
-                signUp: true,
-                user: userActions.user
+                ...state
             }
-        case signUpConstants.SIGNUP_SUCCESS:
+        case signupActions.SUCCESS:
             return {
-                signUp: true,
-                user: userActions.user
+                ...state
             }
-        case signUpConstants.SIGNUP_FAILURE:
+        case signupActions.FAILURE:
             return {
-                signUp: false,
-                user: userActions.user
+                ...state
             }
+        default:
+            return state
     }
 }
-// Actions
-const signUpActions = {
-    signUp
-}
-function signUp(e) {
-    return dispatch => {
-
-    }
-}
-// Thunk
-function signUpService() {
+function register() {
     const userid = ''
     const password = ''
     const name = ''
@@ -50,8 +41,10 @@ function signUpService() {
     return fetch(``)
         .then()
 }
-// Component --> 컨테이너가 된다.
-const Signup = () => {
+function cancel() {
+
+}
+const Signup:React.FC = () => {
     const [userid, setUserid] = useState("")
     const [password, setPassword] = useState("")
     const [name, setName] = useState("")
@@ -80,8 +73,8 @@ const Signup = () => {
                         & Privacy</a>.</p>
 
                     <div className="clearfix">
-                        <MDBBtn onClick={signUp} className={"button3"}>Cancel</MDBBtn>
-                        <MDBBtn onClick={signUp} className={"button3"}>Sign Up</MDBBtn>
+                        <MDBBtn onClick={register} className={"button3"}>Cancel</MDBBtn>
+                        <MDBBtn onClick={cancel} className={"button3"}>Sign Up</MDBBtn>
                     </div>
                 </div>
             </form>
@@ -89,4 +82,3 @@ const Signup = () => {
     );
 };
 
-export default Signup;
