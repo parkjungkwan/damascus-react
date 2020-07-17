@@ -1,25 +1,51 @@
 import React, {Component} from "react";
 import '../../assets/login.css'
 import {connect} from "react-redux";
-
-export const userConstants = {
+/*Commands*/
+const userConstants = {
     LOGIN_REQUEST: 'USER_LOGIN_REQUEST',
     LOGIN_SUCCESS: 'USER_LOGIN_SUCCESS',
     LOGIN_FAILURE: 'USER_LOGIN_FAILURE'
 }
 
-export function login(userid, password) {
-    alert(`ID: ${userid}, PW: ${password}`)
-    loginService(userid, password)
-
-    return dispatch =>{
-        dispatch(request(userid))
+const userActions = {
+    login, logout, signup, remove, update
+}
+/*Reducers*/
+function loginReducer(payload, userActions) {
+    switch (userActions) {
+        case userConstants.LOGIN_REQUEST:
+            return {
+                logginIn: true,
+                user: userActions.user
+            }
+        case userConstants.LOGIN_SUCCESS:
+            return {
+                logginIn: true,
+                user: userActions.user
+            }
+        case userConstants.LOGIN_FAILURE:
+            return {
+                logginIn: true,
+                user: userActions.user
+            }
+    }
+    const action = (type, user) => {
+        switch(type){
+            case 'USER_LOGIN_REQUEST':
+                return { type: type, user}
+                break
+            case 'USER_LOGIN_SUCCESS':
+                return { type: type, user}
+                break
+            case 'USER_LOGIN_FAILURE':
+                return { type: type, user}
+                break
+        }
     }
 
-    const request = user => { return { type: userConstants.LOGIN_REQUEST, user}}
-    const success = user => { return { type: userConstants.LOGIN_SUCCESS, user}}
-    const failure = user => { return { type: userConstants.LOGIN_FAILURE, user}}
 }
+/* Action Function */
 function handleResponse(response) {
     return response.text()
         .then(text =>{
@@ -35,7 +61,32 @@ function handleResponse(response) {
             return data
         })
 }
-export function loginService(userid, password) {
+function login(userid, password){
+    return dispatch => {
+        dispatch(request({userid}))
+        loginService(userid, password)
+            .then(
+                user =>{
+                    dispatch(success(user))
+                },
+                error =>{
+                    dispatch(failure(error.toString()))
+                }
+            )
+
+    }
+    function request(user) {return {type: userConstants.LOGIN_REQUEST, user}}
+    function success(user) {return {type: userConstants.LOGIN_REQUEST, user}}
+    function failure(error) {return {type: userConstants.LOGIN_REQUEST, error}}
+}
+
+function logout(){}
+function signup(){}
+function remove(){}
+function update(){}
+
+/*MiddleWare*/
+function loginService(userid, password) {
     alert(` loginService 진입 `)
     const requestOptions = {
         method: 'POST',
@@ -49,7 +100,6 @@ export function loginService(userid, password) {
             localStorage.setItem('user', JSON.stringify(user))
         })
 }
-
 class Login extends Component<any, any>{
     constructor(props) {
         super(props);

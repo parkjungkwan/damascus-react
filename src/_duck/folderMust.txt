@@ -1,0 +1,15 @@
+A duck folder MUST:
+
+contain the entire logic for handling only ONE concept in your app, ex: product, cart, session, etc.
+have an index.js file that exports according to the original duck rules.
+keep code with similar purpose in the same file, such as reducers, selectors, and actions
+contain the tests related to the duck.
+
+
+Function vs Feature
+There are two established approaches of structuring applications: function-first and feature-first.
+
+
+Function-first means that your top-level directories are named after the purpose of the files inside. So you have: containers, components, actions, reducers, etc.
+
+Feature-first means that the top-level directories are named after the main features of the app: product, cart, session.
