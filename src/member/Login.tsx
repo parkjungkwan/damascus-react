@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import 'member.css'
 import {connect} from "react-redux";
 /*Commands*/
@@ -58,10 +58,11 @@ function handleResponse(response) {
             return data
         })
 }
-function login(userid, password){
+function login(e){
+    e.preventDefault()
     return dispatch => {
-        dispatch(request({userid}))
-        loginService(userid, password)
+        // dispatch(request({userid}))
+        loginService()
             .then(
                 user =>{
                     dispatch(success(user))
@@ -80,7 +81,9 @@ function login(userid, password){
 function logout(){}
 
 /* MiddleWare ( thunk, saga )*/
-function loginService(userid, password) {
+function loginService() {
+    const userid = ''
+    const password = ''
     alert(` loginService 진입 `)
     const requestOptions = {
         method: 'POST',
@@ -96,7 +99,12 @@ function loginService(userid, password) {
 }
 
 /* Component */
-const Login = () => <div>
+const Login = () => {
+    const [userid, setUserid] = useState("")
+    const [password, setPassword] = useState("")
+
+
+    return (<div>
             <h2>Login Form</h2>
             <form name="form" >
                 <div className="imgcontainer">
@@ -105,17 +113,17 @@ const Login = () => <div>
                 <div className="container">
                     <label htmlFor="uname"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username"
-                           name="userid"
+                           name="userid" onChange={e=>setUserid(e.target.value)}
 
                     />
 
                     <label htmlFor="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password"
                            name="password"
-
+                           onChange={e=>setPassword(e.target.value)}
                     />
 
-                    <button type="submit">Login</button>
+                    <button onClick={login}>Login</button>
                     <label>
                         <input type="checkbox" checked={true} name="remember"/> Remember me
                     </label>
@@ -125,4 +133,5 @@ const Login = () => <div>
                     <span className="psw">Forgot <a href="#">password?</a></span>
                 </div>
             </form>
-        </div>
+        </div>)
+}
