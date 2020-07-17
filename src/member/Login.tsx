@@ -1,48 +1,36 @@
 import React, { useState } from "react";
-import 'member.css'
-import {connect} from "react-redux";
-/*Commands*/
-const loginConstants = {
-    LOGIN_REQUEST: 'USER_LOGIN_REQUEST',
-    LOGIN_SUCCESS: 'USER_LOGIN_SUCCESS',
-    LOGIN_FAILURE: 'USER_LOGIN_FAILURE'
-}
-
-/*Reducers*/
-function loginReducer(payload, userActions) {
-    switch (userActions) {
-        case loginConstants.LOGIN_REQUEST:
-            return {
-                logginIn: true,
-                user: userActions.user
-            }
-        case loginConstants.LOGIN_SUCCESS:
-            return {
-                logginIn: true,
-                user: userActions.user
-            }
-        case loginConstants.LOGIN_FAILURE:
-            return {
-                logginIn: false,
-                user: userActions.user
-            }
-    }
-    const action = (type, user) => {
-        switch(type){
-            case loginConstants.LOGIN_REQUEST:
-                return { type: type, user}
-            case loginConstants.LOGIN_SUCCESS:
-                return { type: type, user}
-            case loginConstants.LOGIN_FAILURE:
-                return { type: type, user}
-        }
-    }
-
-}
-/*Actions*/
 const loginActions = {
-    handleResponse, login, logout
+    REQUEST: 'login/REQUEST',
+    SUCCESS: 'login/SUCCESS',
+    FAILURE: 'login/FAILURE'
 }
+export function request(user) {return {type: loginActions.REQUEST, user}}
+export function success(user) {return {type: loginActions.SUCCESS, user}}
+export function failure(error) {return {type: loginActions.FAILURE, error}}
+
+const initialState = {
+    userid: '',
+    password: ''
+};
+export default function login(state=initialState, action) {
+    switch (action.type) {
+        case loginActions.REQUEST:
+            return {
+                ...state
+            }
+        case loginActions.SUCCESS:
+            return {
+                ...state
+            }
+        case loginActions.FAILURE:
+            return {
+                ...state
+            }
+        default:
+            return state
+    }
+}
+
 function handleResponse(response) {
     return response.text()
         .then(text =>{
@@ -58,29 +46,10 @@ function handleResponse(response) {
             return data
         })
 }
-function login(e){
-    e.preventDefault()
-    return dispatch => {
-        // dispatch(request({userid}))
-        loginService()
-            .then(
-                user =>{
-                    dispatch(success(user))
-                },
-                error =>{
-                    dispatch(failure(error.toString()))
-                }
-            )
 
-    }
-    function request(user) {return {type: loginConstants.LOGIN_REQUEST, user}}
-    function success(user) {return {type: loginConstants.LOGIN_SUCCESS, user}}
-    function failure(error) {return {type: loginConstants.LOGIN_FAILURE, error}}
-}
 
-function logout(){}
+function logoutService(){}
 
-/* MiddleWare ( thunk, saga )*/
 function loginService() {
     const userid = ''
     const password = ''
@@ -98,8 +67,7 @@ function loginService() {
         })
 }
 
-/* Component */
-const Login = () => {
+const Login:React.FC = () => {
     const [userid, setUserid] = useState("")
     const [password, setPassword] = useState("")
 
@@ -123,7 +91,7 @@ const Login = () => {
                            onChange={e=>setPassword(e.target.value)}
                     />
 
-                    <button onClick={login}>Login</button>
+                    <button onClick={loginService}>Login</button>
                     <label>
                         <input type="checkbox" checked={true} name="remember"/> Remember me
                     </label>

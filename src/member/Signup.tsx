@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {MDBBtn, MDBInput} from 'mdbreact'
 /*Commands-> 액션과 리듀서를 연결*/
 const signUpConstants = {
     SIGNUP_REQUEST: 'USER_SIGNUP_REQUEST',
@@ -79,8 +80,8 @@ const Signup = () => {
                         & Privacy</a>.</p>
 
                     <div className="clearfix">
-                        <button type="button" className="cancelbtn">Cancel</button>
-                        <button type="submit" className="signupbtn">Sign Up</button>
+                        <MDBBtn onClick={signUp} className={"button3"}>Cancel</MDBBtn>
+                        <MDBBtn onClick={signUp} className={"button3"}>Sign Up</MDBBtn>
                     </div>
                 </div>
             </form>

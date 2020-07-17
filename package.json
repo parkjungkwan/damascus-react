@@ -11,6 +11,7 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "connected-react-router": "^6.8.0",
+    "mdbreact": "^4.27.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -21,6 +22,7 @@
     "react-scripts": "3.4.1",
     "react-simple-chatbot": "^0.6.1",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.1"
   },
   "scripts": {
