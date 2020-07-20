@@ -1,7 +1,11 @@
-import React, {Component} from "react";
+import React from "react";
+import { Route, NavLink} from 'react-router-dom'
+import Home from "../home/Home";
+import MyCounter from "../article/MyCounter";
 
-class Navigator extends Component<any, any>{
-    public render() {
+const Navigator :React.FC = () => {
+
+
         return <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
             {/*Brand*/}
             <a className="navbar-brand" href="#">
@@ -10,24 +14,23 @@ class Navigator extends Component<any, any>{
             {/*Links*/}
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Link 1</a>
+                    <NavLink to={"/counter"}>카운터</NavLink>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Link 2</a>
+                    <NavLink to={"/counter"}>업무관리</NavLink>
                 </li>
                 {/*Dropdown*/}
                 <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        Dropdown link
+                        로그인
                     </a>
                     <div className="dropdown-menu">
-                        <a className="dropdown-item" href="#">Link 1</a>
-                        <a className="dropdown-item" href="#">Link 2</a>
-                        <a className="dropdown-item" href="#">Link 3</a>
+                        <NavLink to={"/signin"}>Sign In</NavLink>
+                        <NavLink to={"/signup"}>Sign Up</NavLink>
                     </div>
                 </li>
             </ul>
+
         </nav>
-    }
 }
 export default Navigator
