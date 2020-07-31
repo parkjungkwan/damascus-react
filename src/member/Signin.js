@@ -62,7 +62,7 @@ const login = () => {
         })
 }
 
-export const Signin:React.FC = () => {
+export const Signin = () => {
     const [userid, setUserid] = useState("")
     const [password, setPassword] = useState("")
 

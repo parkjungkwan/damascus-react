@@ -1,15 +1,20 @@
-import React from "react";
-import {Contact, Footer, Guide, Modal, Navigator, Tour, TourMap} from "../commons";
-import MyChatbot from "../chatbot/MyChatbot";
+import React from "react"
+import { Route, BrowserRouter, Switch } from 'react-router-dom'
+import { Navigator, Footer} from "../commons"
+import MyCounter from "../article/MyCounter";
+import Signin from "../member/Signin";
+import Signup from "../member/Signup";
+
 const Home = () => {
     return <>
-        <MyChatbot/>
         <Navigator/>
-        <TourMap/>
-        <Guide/>
-        <Tour/>
-        <Modal/>
-        <Contact/>
+        <BrowserRouter>
+            <Switch>
+                <Route path={"/counter"} component={MyCounter}/>
+                <Route path={"/signin"} component={Signin}/>
+                <Route path={"/signup"} component={Signup}/>
+            </Switch>
+        </BrowserRouter>
         <Footer/>
     </>
 }

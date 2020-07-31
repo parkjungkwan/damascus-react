@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, NavLink} from 'react-router-dom'
+import style from './commons.module.scss'
 
 const Navigator = () => {
 
@@ -14,7 +15,7 @@ const Navigator = () => {
                 <li className="nav-item">
                     <NavLink to={"/counter"}>카운터</NavLink>
 
-                </li>
+                </li><span className={`${style.width20px}`}></span>
                 <li className="nav-item">
                     <NavLink to={"/counter"}>업무관리</NavLink>
                 </li>
