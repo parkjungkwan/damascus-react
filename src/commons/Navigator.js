@@ -7,14 +7,13 @@ const Navigator = () => {
 
         return <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
             {/*Brand*/}
-            <a className="navbar-brand" href="#">
-                <span className="glyphicon glyphicon-home"></span>
+            <a className="navbar-brand" href="#"> <NavLink to={"/"}>
+                <span className="glyphicon glyphicon-home"/></NavLink>
             </a>
             {/*Links*/}
             <ul className="navbar-nav">
                 <li className="nav-item">
                     <NavLink to={"/counter"}>카운터</NavLink>
-
                 </li><span className={`${style.width20px}`}></span>
                 <li className="nav-item">
                     <NavLink to={"/counter"}>업무관리</NavLink>
