@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Navigator} from "../commons";
 const signinTypes = {REQUEST: 'signin/REQUEST', SUCCESS: 'signin/SUCCESS', FAILURE: 'signin/FAILURE'}
 const signinRequest = action => ({ type: signinTypes.REQUEST, payload: action.payload })
 const signinSuccess = action => ({ type: signinTypes.SUCCESS, payload: action.payload })
@@ -68,6 +69,7 @@ export const Signin = () => {
 
 
     return <>
+	    <Navigator/>
             <h2>Login Form</h2>
             <form name="form" >
                 <div className="imgcontainer">
@@ -98,4 +100,4 @@ export const Signin = () => {
             </form>
         </>
 }
-export default signinReducer
+export default Signin

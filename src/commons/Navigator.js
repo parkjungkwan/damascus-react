@@ -22,11 +22,11 @@ const Navigator = () => {
                 {/*Dropdown*/}
                 <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        로그인
+                        접 속
                     </a>
                     <div className="dropdown-menu">
-                        <NavLink to={"/signin"}>Sign In</NavLink>
-                        <NavLink to={"/signup"}>Sign Up</NavLink>
+                        <NavLink to={"/signin"}>로그인</NavLink><br/>
+                        <NavLink to={"/signup"}>회원가입</NavLink>
                     </div>
                 </li>
             </ul>

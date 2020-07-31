@@ -10,7 +10,7 @@ import signin from "./member/Signin";
 const App = React.lazy(()=>import('./App'))
 
 const rootReducer = combineReducers({
-    login: signin
+
 });
 
 ReactDOM.render(
