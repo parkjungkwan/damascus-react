@@ -40,7 +40,7 @@ const register = () => {
 const cancel = () => {
 
 }
-export const Signup:React.FC = () => {
+export const Signup = () => {
     const [userid, setUserid] = useState("")
     const [password, setPassword] = useState("")
     const [name, setName] = useState("")

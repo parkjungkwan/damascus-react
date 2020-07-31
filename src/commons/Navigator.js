@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, NavLink} from 'react-router-dom'
-import style from './commons.module.scss'
 
 const Navigator = () => {
 
@@ -14,10 +13,11 @@ const Navigator = () => {
             <ul className="navbar-nav">
                 <li className="nav-item">
                     <NavLink to={"/counter"}>카운터</NavLink>
-                </li><span className={`${style.width20px}`}>-</span>
+
+                </li>
                 <li className="nav-item">
                     <NavLink to={"/counter"}>업무관리</NavLink>
-                </li><span className={`${style.width20px}`}>-</span>
+                </li>
                 {/*Dropdown*/}
                 <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
