@@ -1,5 +1,5 @@
 import React from "react";
-const Contact:React.FC = () =>{
+const Contact = () =>{
     return (<div></div>)
 }
 export default Contact

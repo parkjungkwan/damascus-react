@@ -1,27 +1,23 @@
 import React, {useState} from 'react';
 import {MDBBtn, MDBInput} from 'mdbreact'
-const signupActions = {
-    REQUEST: 'signup/REQUEST',
-    SUCCESS: 'signup/SUCCESS',
-    FAILURE: 'signup/FAILURE'
-}
-export function request(member) { return {type: signupActions.REQUEST, member} }
-export function success(member) { return {type: signupActions.SUCCESS, member} }
-export function failuer(error) { return {type: signupActions.FAILURE, error}}
+const signupTypes = { REQUEST: 'signup/REQUEST', SUCCESS: 'signup/SUCCESS', FAILURE: 'signup/FAILURE' }
+const signupRequest = action => { return {type: signupTypes.REQUEST, payload: action.payload} }
+const signupSuccess = action => { return {type: signupTypes.SUCCESS, payload: action.payload} }
+const signupFailuer = (error) => { return {type: signupTypes.FAILURE, error}}
 
 const initialState = { userid: '', password: '', name: ''}
 
-export default function signup( state = initialState, action) {
+const signupReducer = ( state = initialState, action) => {
     switch (action.type) {
-        case signupActions.REQUEST:
+        case signupTypes.REQUEST:
             return {
                 ...state
             }
-        case signupActions.SUCCESS:
+        case signupTypes.SUCCESS:
             return {
                 ...state
             }
-        case signupActions.FAILURE:
+        case signupTypes.FAILURE:
             return {
                 ...state
             }
@@ -29,7 +25,7 @@ export default function signup( state = initialState, action) {
             return state
     }
 }
-function register() {
+const register = () => {
     const userid = ''
     const password = ''
     const name = ''
@@ -41,10 +37,10 @@ function register() {
     return fetch(``)
         .then()
 }
-function cancel() {
+const cancel = () => {
 
 }
-const Signup:React.FC = () => {
+export const Signup:React.FC = () => {
     const [userid, setUserid] = useState("")
     const [password, setPassword] = useState("")
     const [name, setName] = useState("")
@@ -81,4 +77,4 @@ const Signup:React.FC = () => {
         </div>
     );
 };
-
+export default signupReducer

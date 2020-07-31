@@ -5,7 +5,7 @@ interface CounterProps {
 interface CounterStates {
     number: number
 }
-class Counter extends Component<CounterProps, CounterStates>{
+class CounterClass extends Component<CounterProps, CounterStates>{
     public state = {number: 0}
     props: any
 
@@ -26,4 +26,4 @@ class Counter extends Component<CounterProps, CounterStates>{
         </div>
     }
 }
-export default Counter
+export default CounterClass
