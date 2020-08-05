@@ -1,54 +1,14 @@
 import React, {useState} from 'react';
 import {MDBBtn, MDBInput} from 'mdbreact'
-const signupActions = {
-    REQUEST: 'signup/REQUEST',
-    SUCCESS: 'signup/SUCCESS',
-    FAILURE: 'signup/FAILURE'
-}
-export function request(member) { return {type: signupActions.REQUEST, member} }
-export function success(member) { return {type: signupActions.SUCCESS, member} }
-export function failuer(error) { return {type: signupActions.FAILURE, error}}
+import {Navigator} from "../commons";
 
-const initialState = { userid: '', password: '', name: ''}
 
-export default function signup( state = initialState, action) {
-    switch (action.type) {
-        case signupActions.REQUEST:
-            return {
-                ...state
-            }
-        case signupActions.SUCCESS:
-            return {
-                ...state
-            }
-        case signupActions.FAILURE:
-            return {
-                ...state
-            }
-        default:
-            return state
-    }
-}
-function register() {
-    const userid = ''
-    const password = ''
-    const name = ''
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({userid,password, name})
-    }
-    return fetch(``)
-        .then()
-}
-function cancel() {
-
-}
-const Signup:React.FC = () => {
+export const Signup = () => {
     const [userid, setUserid] = useState("")
     const [password, setPassword] = useState("")
     const [name, setName] = useState("")
-    return (
+    return <>
+	    <Navigator/>
         <div>
             <form name="form">
                 <div className="container">
@@ -73,12 +33,12 @@ const Signup:React.FC = () => {
                         & Privacy</a>.</p>
 
                     <div className="clearfix">
-                        <MDBBtn onClick={register} className={"button3"}>Cancel</MDBBtn>
-                        <MDBBtn onClick={cancel} className={"button3"}>Sign Up</MDBBtn>
+                        <MDBBtn className={"button3"}>Cancel</MDBBtn>
+                        <MDBBtn className={"button3"}>Sign Up</MDBBtn>
                     </div>
                 </div>
             </form>
         </div>
-    );
+	    </>
 };
-
+export default Signup

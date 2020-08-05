@@ -1,28 +1,25 @@
 import React, { useState } from "react";
-const signinActions = {
-    REQUEST: 'signin/REQUEST',
-    SUCCESS: 'signin/SUCCESS',
-    FAILURE: 'signin/FAILURE'
-}
-export function request(member) {return {type: signinActions.REQUEST, member}}
-export function success(member) {return {type: signinActions.SUCCESS, member}}
-export function failure(error) {return {type: signinActions.FAILURE, error}}
+import {Navigator} from "../commons";
+const signinTypes = {REQUEST: 'signin/REQUEST', SUCCESS: 'signin/SUCCESS', FAILURE: 'signin/FAILURE'}
+const signinRequest = action => ({ type: signinTypes.REQUEST, payload: action.payload })
+const signinSuccess = action => ({ type: signinTypes.SUCCESS, payload: action.payload })
+const signinFailure = error => ({ type: signinTypes.FAILURE, error })
 
 const initialState = {
     userid: '',
     password: ''
 };
-export default function signin(state=initialState, action) {
+const signinReducer = (state=initialState, action) => {
     switch (action.type) {
-        case signinActions.REQUEST:
+        case signinTypes.REQUEST:
             return {
                 ...state
             }
-        case signinActions.SUCCESS:
+        case signinTypes.SUCCESS:
             return {
                 ...state
             }
-        case signinActions.FAILURE:
+        case signinTypes.FAILURE:
             return {
                 ...state
             }
@@ -31,7 +28,7 @@ export default function signin(state=initialState, action) {
     }
 }
 
-function handleResponse(response) {
+const handleResponse = (response) => {
     return response.text()
         .then(text =>{
             const data = text && JSON.parse(text)
@@ -47,10 +44,9 @@ function handleResponse(response) {
         })
 }
 
+const logout = () => {}
 
-function logout(){}
-
-function login() {
+const login = () => {
     const userid = ''
     const password = ''
     alert(` loginService 진입 `)
@@ -67,12 +63,13 @@ function login() {
         })
 }
 
-const Signin:React.FC = () => {
+export const Signin = () => {
     const [userid, setUserid] = useState("")
     const [password, setPassword] = useState("")
 
 
-    return (<div>
+    return <>
+	    <Navigator/>
             <h2>Login Form</h2>
             <form name="form" >
                 <div className="imgcontainer">
@@ -101,5 +98,6 @@ const Signin:React.FC = () => {
                     <span className="psw">Forgot <a href="#">password?</a></span>
                 </div>
             </form>
-        </div>)
+        </>
 }
+export default Signin

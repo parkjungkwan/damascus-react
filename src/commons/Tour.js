@@ -1,5 +1,5 @@
 import React from "react";
-const Tour:React.FC = () => {
+const Tour = () => {
     return (<div id="tour" className="bg-1">
         <div className="container">
             <h3 className="text-center">TOUR DATES</h3>
