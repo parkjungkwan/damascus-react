@@ -1,0 +1,33 @@
+.search {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    height: 30px;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 900px;
+    z-index: 10;
+}
+
+.search input {
+    padding: 0.5rem;
+    font-size: 2rem;
+    width: 100%;
+}
+
+.locate {
+    position: absolute;
+    top: 4rem;
+    left: 97%;
+    background: none;
+    border: none;
+    z-index: 10;
+}
+.locate img {
+    width: 50px;
+    cursor: pointer;
+}
+
+.infowindow{
+    text-align: left;
+}
