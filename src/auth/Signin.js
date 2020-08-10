@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Navigator} from "../commons";
+import {Navigator} from "../common";
 const signinTypes = {REQUEST: 'signin/REQUEST', SUCCESS: 'signin/SUCCESS', FAILURE: 'signin/FAILURE'}
 const signinRequest = action => ({ type: signinTypes.REQUEST, payload: action.payload })
 const signinSuccess = action => ({ type: signinTypes.SUCCESS, payload: action.payload })

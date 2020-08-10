@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import thunk from "redux-thunk";
-import signin from "./member/Signin";
+import signin from "./auth/Signin";
 const App = React.lazy(()=>import('./App'))
 
 const rootReducer = combineReducers({

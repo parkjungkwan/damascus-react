@@ -4,13 +4,10 @@ import style from './commons.module.scss'
 
 const Navigator = () => {
 
-
         return <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
-            {/*Brand*/}
             <a className="navbar-brand" href="#"> <NavLink to={"/"}>
                 <span className="glyphicon glyphicon-home"/></NavLink>
             </a>
-            {/*Links*/}
             <ul className="navbar-nav">
                 <li className="nav-item">
                     <NavLink to={"/counter"}>카운터</NavLink>
@@ -18,7 +15,6 @@ const Navigator = () => {
                 <li className="nav-item">
                     <NavLink to={"/counter"}>업무관리</NavLink>
                 </li>
-                {/*Dropdown*/}
                 <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                         접 속

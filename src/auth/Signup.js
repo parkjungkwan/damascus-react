@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {MDBBtn, MDBInput} from 'mdbreact'
-import {Navigator} from "../commons";
+import {Navigator} from "../common";
 
 
 export const Signup = () => {

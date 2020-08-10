@@ -1,9 +1,9 @@
 import React from "react"
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
-import { Navigator, TourMap, Footer, Contact, Guide, Modal, Tour} from "../commons"
-import MyCounter from "../article/MyCounter";
-import Signin from "../member/Signin";
-import Signup from "../member/Signup";
+import { Navigator, TourMap, Footer, Contact, Guide, Modal, Tour} from "../common"
+import MyCounter from "../employment/work_article/MyCounter";
+import Signin from "../auth/Signin";
+import Signup from "../auth/Signup";
 
 const Home = () => {
     return <>
