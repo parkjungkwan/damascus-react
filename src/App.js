@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-// import Home from './home/Home';
-//import Chart from "./statistic/Chart";
-//import HttpClient from "./node/HttpClient";
-import SocketClient from "./node/SocketClient";
-import './App.css';
-import Map from "./map/map";
-const App = () => {
-
-        return  <div>
-                    <Map/>
-        </div>
-}
-
-=======
 import React, { Suspense } from "react";
 import { BrowserRouter as Router , Route, Switch, Redirect } from 'react-router-dom'
 import './App.css'
@@ -40,6 +24,4 @@ const App = () => {
 	</>
 }
 
-
->>>>>>> e2d187efeeeacdbcec87fba40a779f08b684f38d
 export default App;
