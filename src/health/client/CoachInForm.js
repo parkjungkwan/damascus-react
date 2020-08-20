@@ -8,7 +8,7 @@ import {
     Form,
     FormField
 } from 'grommet';
-import NullPhoto from '../../assets/null_photo.png'
+import NullPhoto from '../common/assets/null_photo.png'
 
 
 class CoachForm extends Component {

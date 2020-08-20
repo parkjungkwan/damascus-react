@@ -7,7 +7,7 @@ import {
   Text
 } from 'grommet';
 import { Github } from 'grommet-icons';
-import logo from '../assets/logo.png';
+import logo from './assets/logo.png';
 
 const FootBar = (props) => (
   <Box

@@ -9,7 +9,7 @@ import {
     Text
 } from "grommet";
 import { FormPreviousLink as PrevLinkIcon } from 'grommet-icons';
-import NullPhoto from '../../assets/null_photo.png'
+import NullPhoto from '../common/assets/null_photo.png'
 const style_1 = {
     width: "100%",
     height: "100%",

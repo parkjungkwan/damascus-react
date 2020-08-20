@@ -12,9 +12,9 @@ import {
   TextArea 
 } from 'grommet';
 import axios from 'axios';
-import NullPhoto from '../../assets/null_photo.png';
+import NullPhoto from '../common/assets/null_photo.png';
 
-class DiaryEdit extends Component {
+class DiaryNew extends Component {
   constructor() {
     super();
 
@@ -28,8 +28,7 @@ class DiaryEdit extends Component {
       diarySkeletal: 0.0,
       diaryComment: '',
       newPhoto: '',
-      diaryPhoto: '',
-      memberId: sessionStorage.getItem('memberId')
+      diaryPhoto: ''
     }
 
     this.handleChange = (e) => {
@@ -46,14 +45,13 @@ class DiaryEdit extends Component {
 
     let data = new FormData()
     data.append("file", e.target.files[0])
-    data.append("user", this.state.memberId)
 
     let fileReader = new FileReader()
     fileReader.readAsDataURL(e.target.files[0])
     fileReader.onload = function(e){
       e.preventDefault()
       const headers = { "Content-Type": "multipart/form-data" }
-      axios.post("http://52.79.235.166/upload/", data, { headers: headers })
+      axios.post("http://52.79.235.166/upload", data, { headers: headers })
         .then(res => { 
           alert("사진이 업로드 되었습니다")
           document.getElementById("photoThumb").src = e.target.result
@@ -63,7 +61,8 @@ class DiaryEdit extends Component {
     }
   }
 
-  resetDiary = (date, memberId) => (e) => {
+  setDiary = (e) => {
+    let memberId = sessionStorage.getItem("memberId")
     e.preventDefault()
     let data = {
       diaryDate: this.state.date,
@@ -81,55 +80,36 @@ class DiaryEdit extends Component {
       // 'Authorization' : 'JWT fefege...'
       'Access-Control-Allow-Origin': '*'
     }
-    axios.put(`http://52.79.235.166/diary/update/${date}/${memberId}`, JSON.stringify(data), { headers: headers })
+    axios.post(`http://52.79.235.166/diary/${memberId}`, JSON.stringify(data), { headers: headers })
       .then(res => {
-        alert("다이어리 수정이 완료되었습니다")
-        this.props.history.push("/diary/read/"+this.state.date)
+        alert("다이어리 작성이 완료되었습니다")
+        this.props.history.push('/diary/list')
       })
       .catch(e => { alert("작성 실패")})
   }
 
   componentDidMount() {
-    let self = this
     const { date } = this.props.match.params
     this.setState({ date: date })
-    let memberId = this.state.memberId
-    axios.get(`http://52.79.235.166/diary/find/${date}/${memberId}`)
-      .then(res => {
-        const diaryPost = res.data
-        self.setState({
-          diaryDays: diaryPost.diaryDays,
-          diaryGoal: diaryPost.diaryGoal,
-          diaryFat: diaryPost.diaryFat,
-          diaryWater: diaryPost.diaryWater,
-          diaryMuscle: diaryPost.diaryMuscle,
-          diarySkeletal: diaryPost.diarySkeletal,
-          diaryComment: diaryPost.diaryComment,
-          diaryPhoto: diaryPost.diaryPhoto
-        })
-      })
   }
 
   render() {
-    let diaryThumb = this.state.diaryPhoto === null || this.state.diaryPhoto === ""
-      ? NullPhoto : "/user-image/" + this.state.diaryPhoto
+    let diaryThumb = NullPhoto
     return (
       <ResponsiveContext.Consumer>
         {size => (
-          <Box direction="column" align="center" justify="center" pad={{}}>
-            <Heading level="3">다이어리 글 수정</Heading>
+          <Box direction="column" align="center" justify="center">
+            <Heading level="3">다이어리 새 글</Heading>
             <Text>{this.state.date}</Text>
             <Box fill direction="row" align="stretch" justify="evenly" wrap>
-              <Box
-                direction="column"
-                align="center"
+              <Box 
+                direction="column" 
+                align="center" 
                 justify="evenly"
-                width="small"
-                height="medium"
-                round="small"
-                border={{ 
-                  size: "medium", style: "dashed" 
-                }}
+                width="small" 
+                height="medium" 
+                round="small" 
+                border={{ size: "medium", style: "dashed" }}
               >
                 <Box fill align="stretch" justify="evenly" alignContent="center" gap="medium">
                   <Form>
@@ -184,7 +164,7 @@ class DiaryEdit extends Component {
                       component={RangeInput} 
                       value={this.state.diaryFat} 
                       onChange={this.handleChange} 
-                      min={0} max={60} step={0.1}
+                      min={0} max={60} step={0.1} 
                     />
                     <Box align="center">
                       <Text size="small">
@@ -234,9 +214,9 @@ class DiaryEdit extends Component {
                       label="소감" 
                       name="diaryComment" 
                       component={TextArea} 
-                      value={this.state.diaryComment} 
                       onChange={this.handleChange} 
-                      placeholder={this.state.diaryComment} 
+                      placeholder="300자 이내로 입력해주세요" 
+                      validate={{ regexp: /^(...){0,300}$/, message: "300자 이내로 입력해주세요" }} 
                     />
                     <Box 
                       direction="row" 
@@ -248,14 +228,14 @@ class DiaryEdit extends Component {
                         primary 
                         color="dark-2" 
                         label="저장" 
-                        onClick={this.resetDiary(this.state.date, this.state.memberId)} 
+                        onClick={this.setDiary} 
                         {...this.props} 
                       />
                       <Button 
                         primary 
                         color="light-2" 
                         label="취소" 
-                        href={"/diary/read/"+this.state.date}
+                        href={"/diary/list"}
                         {...this.props} 
                       />
                     </Box>
@@ -270,4 +250,4 @@ class DiaryEdit extends Component {
   }
 }
 
-export default DiaryEdit;
+export default DiaryNew;

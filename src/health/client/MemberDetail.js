@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { ResponsiveContext, Box, FormField, Button, Image, Text, TextArea, Form, RadioButton, MaskedInput } from "grommet";
 import axios from "axios";
-import NullPhoto from "../../assets/null_photo.png"
+import NullPhoto from "../common/assets/null_photo.png"
 
-class MyPage extends Component {
+class MemberDetail extends Component {
   constructor(props) {
     super(props);
     this.state={
@@ -267,4 +267,4 @@ class MyPage extends Component {
     );
   }
 }
-export default MyPage;
+export default MemberDetail;

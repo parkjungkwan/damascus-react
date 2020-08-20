@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Box, Heading, ResponsiveContext, Text, Button, Form } from "grommet";
 import axios from "axios";
 
-class ExerciseList extends Component {
+class ChallengeExerciseList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -129,6 +129,6 @@ class ExerciseList extends Component {
     );
   }
 }
-export default ExerciseList;
+export default ChallengeExerciseList;
 // map을 다른걸로 초기화
 // 

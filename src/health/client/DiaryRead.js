@@ -11,7 +11,7 @@ import {
   TextArea 
 } from 'grommet';
 import axios from 'axios';
-import NullPhoto from '../../assets/null_photo.png';
+import NullPhoto from '../common/assets/null_photo.png';
 
 class DiaryRead extends Component {
   constructor() {

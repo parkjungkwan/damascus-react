@@ -2,10 +2,10 @@ import React, { Suspense } from "react";
 import { BrowserRouter as Router , Route, Switch, Redirect } from 'react-router-dom'
 import './App.css'
 import MyCounter from "./employment/work_article/MyCounter";
-import Signin from "./auth/Signin";
-import Signup from "./auth/Signup";
+import Signin from "./passenger/auth/Signin";
+import Signup from "./passenger/auth/Signup";
 
-const Home = React.lazy(() => import('./home/Home'))
+const Home = React.lazy(() => import('./passenger/home/Home'))
 
 
 const App = () => {

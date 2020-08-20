@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ChatManager, TokenProvider } from '@pusher/chatkit-client';
-import Input from '../components/Input';
-import MessageList from '../components/MessageList';
+import Input from '../common/Input';
+import MessageList from '../common/MessageList';
 
 
 class ChatApp extends Component {

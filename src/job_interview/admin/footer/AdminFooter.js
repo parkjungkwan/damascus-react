@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Footer = () => {
+const AdminFooter = () => {
   const classes = useStyles();
 
   return (
@@ -28,4 +28,4 @@ const Footer = () => {
   );
 }
 
-export default Footer;
+export default AdminFooter;

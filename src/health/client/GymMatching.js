@@ -10,8 +10,8 @@ import {
     Carousel,
     TextInput
 } from 'grommet';
-import Gym from '../../assets/gym.jpg';
-import NullPhoto from '../../assets/null_photo.png'
+import Gym from '../common/assets/gym.jpg';
+import NullPhoto from '../common/assets/null_photo.png'
 class GymMatching extends Component {
     constructor(props) {
         super(props);

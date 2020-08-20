@@ -10,7 +10,7 @@ import {
 } from "grommet";
 import axios from "axios";
 
-class SignUp extends Component {
+class MemberAdd extends Component {
   constructor(props) {
     super(props);
     this.state = { 
@@ -104,4 +104,4 @@ class SignUp extends Component {
     );
   }
 }
-export default SignUp;
+export default MemberAdd;

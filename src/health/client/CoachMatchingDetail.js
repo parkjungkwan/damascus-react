@@ -14,8 +14,8 @@ import { Link } from 'react-router-dom'
 // import ChatApp from './ChatApp';
 // import ChatMessage from '../components/ChatMaessage';
 import { default as Chatkit } from '@pusher/chatkit-server';
-import CoachDetail from '../../assets/coach.jpg';
-import NullPhoto from '../../assets/null_photo.png'
+import CoachDetail from '../common/assets/coach.jpg';
+import NullPhoto from '../common/assets/null_photo.png'
 const chatkit = new Chatkit({
     instanceLocator: "v1:us1:e55ce926-ac88-4558-91e5-00767d8792c6",
     key: "ba8f3f02-dd0e-4ec7-b27a-ef4fbe188f88:Q+hfapQQTfjwuJTqsfFgm5LLgE78RvBnNKM6VX8Bh/s="

@@ -4,8 +4,8 @@ import {
   Grommet,
   ResponsiveContext
 } from 'grommet';
-import NavBar from './containers/NavBar';
-import FooBar from './components/FooBar';
+import NavBar from './common/NavBar';
+import FooBar from './common/FooBar';
 
 const theme = {
   global: {

@@ -2,36 +2,36 @@ import React, { Component } from 'react';
 import { BrowserRouter as BRouter, Route} from 'react-router-dom';
 import {Box,Button,Heading,Layer,Menu,ResponsiveContext,Text} from 'grommet';
 import { FormClose, Menu as MenuIcon } from 'grommet-icons';
-import logo from '../assets/logo.png';
-import Main from '../components/Main';
+import logo from './assets/logo.png';
+import Main from './Main';
 import SignUpType from './Member/SignUpType';
-import Login from './Member/Login';
-import SignUp from './Member/SignUp';
-import MyPage from './Member/MyPage';
-import ChallengeList from './Challenge/ChallengeList';
-import ExerciseList from './Challenge/ExerciseList';
-import MyChallengeEnter from './MyChallenge/MyChallengeEnter';
-import MyChallengeName from './MyChallenge/MyChallengeName';
-import MyChallengeList from './MyChallenge/MyChallengeList';
-import MyChallengeExerciseInsert from './MyChallenge/MyChallengeExerciseInsert';
-import MyChallengeExerciseList from './MyChallenge/MyChallengeExerciseList';
-import DiaryNew from './Diary/DiaryNew';
-import DiaryList from './Diary/DiaryList';
-import DiaryRead from './Diary/DiaryRead';
-import DiaryEdit from './Diary/DiaryEdit';
-import MyExerciseList from './MyExercise/MyExerciseList';
-import MyExerciseRead from './MyExercise/MyExerciseRead';
-import PhotoUpload from '../components/PhotoUpload';
-import ReportMain from './Report/ReportMain';
-import ReportExercise from './Report/ReportExercise';
-import ReportFood from './Report/ReportFood';
-import CoachMatching from './Coach/CoachMatching';
-import CoachMatchingDetail from './Coach/CoachMatchingDetail';
-import GymMatchingDetail from './Gym/GymMatchingDetail';
-import GymMatching from './Gym/GymMatching';
-import CoachInForm from './Coach/CoachInForm';
-import CoachUpdateForm from './Coach/CoachUpdateForm'
-import CoachInsertForm from './Coach/CoachInsertForm'
+import MemberLogin from './Member/Login';
+import MemberAdd from './Member/SignUp';
+import MemberDetail from './Member/MyPage';
+import ChallengeList from '../client/ChallengeList';
+import ChallengeExerciseList from './Challenge/ExerciseList';
+import MyChallengeEnter from '../client/MyChallengeEnter';
+import MyChallengeName from '../client/MyChallengeName';
+import MyChallengeList from '../client/MyChallengeList';
+import MyChallengeExerciseInsert from '../client/MyChallengeExerciseInsert';
+import MyChallengeExerciseList from '../client/MyChallengeExerciseList';
+import DiaryNew from '../client/DiaryNew';
+import DiaryList from '../client/DiaryList';
+import DiaryRead from '../client/DiaryRead';
+import DiaryEdit from '../client/DiaryEdit';
+import MyExerciseList from '../client/MyExerciseList';
+import MyExerciseRead from '../client/MyExerciseRead';
+import PhotoUpload from './PhotoUpload';
+import ReportMain from '../client/ReportMain';
+import ReportExercise from '../client/ReportExercise';
+import ReportFood from '../client/ReportFood';
+import CoachMatching from '../client/CoachMatching';
+import CoachMatchingDetail from '../client/CoachMatchingDetail';
+import GymMatchingDetail from '../client/GymMatchingDetail';
+import GymMatching from '../client/GymMatching';
+import CoachInForm from '../client/CoachInForm';
+import CoachUpdateForm from '../client/CoachUpdateForm'
+import CoachInsertForm from '../client/CoachInsertForm'
 
 // 로그인했을 때 로그인, 회원가입 버튼 --> 로그아웃, 프로필버튼으로 수정 --> 콜백으로 해야함
 
@@ -245,17 +245,17 @@ class NavBar extends Component {
           </HeadBar>
           <Route path="/" exact component={ Main } />
           <Route path="/SignUpType" component={SignUpType} />
-          <Route path="/login" component={Login} />
+          <Route path="/login" component={MemberLogin} />
           <Route path="/challengelist" component={ChallengeList} />
-          <Route path="/exerciselist/:challengeId/:challengeName" component={ExerciseList} />
+          <Route path="/exerciselist/:challengeId/:challengeName" component={ChallengeExerciseList} />
           <Route path="/MyChallengeEnter" component={MyChallengeEnter} />
           <Route path="/MyChallengeName" component={MyChallengeName} />
           <Route path="/MyChallengeList" component={MyChallengeList} />
           <Route path="/MyChallengeExerciseInsert/:myChallengeId" component={MyChallengeExerciseInsert} />
           <Route path="/MyChallengeExerciseList/:myChallengeId/:myChallengeName" component={MyChallengeExerciseList} />
-          <Route path="/SignUp" exact component={SignUp} />
-          <Route path="/SignUp/:memberType" exact component={SignUp} />
-          <Route path="/MyPage" component={MyPage} />
+          <Route path="/SignUp" exact component={MemberAdd} />
+          <Route path="/SignUp/:memberType" exact component={MemberAdd} />
+          <Route path="/MyPage" component={MemberDetail} />
           <Route path="/diary/new/:date" exact component={DiaryNew} />
           <Route path="/diary/list" exact component={DiaryList} />
           <Route path="/diary/read" exact component={DiaryRead} />

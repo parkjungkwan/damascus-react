@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { ResponsiveContext, Box, Button, Heading, Form, FormField, Text } from "grommet";
 import axios from "axios";
 
-class Login extends Component {
+class MemberAuth extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -81,4 +81,4 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+export default MemberAuth;
