@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { ResponsiveContext, Box, FormField, Button, Image, Text, TextArea, Form, RadioButton, MaskedInput } from "grommet";
 import axios from "axios";
-import NullPhoto from "../common/assets/null_photo.png"
+import NullPhoto from "../assets/null_photo.png"
 
 class MemberDetail extends Component {
   constructor(props) {

@@ -8,7 +8,7 @@ import {
   Stack
 } from 'grommet';
 import { PlayFill as PlayIcon } from 'grommet-icons';
-import WhiteCircle from './assets/white_circle.svg';
+import WhiteCircle from '../assets/white_circle.svg';
 
 class Main extends Component {
   constructor(props) {

@@ -12,8 +12,8 @@ import {
 } from 'grommet';
 
 import { Link } from 'react-router-dom'
-import CoachPhoto from '../common/assets/match_main.jpg'
-import NullPhoto from '../common/assets/null_photo.png'
+import CoachPhoto from '../assets/match_main.jpg'
+import NullPhoto from '../assets/null_photo.png'
 
 class CoachMatching extends Component {
 

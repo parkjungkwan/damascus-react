@@ -9,7 +9,7 @@ import {
     FormField
 } from 'grommet';
 import axios from 'axios';
-import NullPhoto from '../common/assets/null_photo.png';
+import NullPhoto from '../assets/null_photo.png';
 
 
 class CoachUpdateForm extends Component {

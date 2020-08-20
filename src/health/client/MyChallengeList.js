@@ -6,7 +6,7 @@ import {
   Heading,
   Image
 } from "grommet";
-import commonChallengePhoto from '../common/assets/commonChallenge.jpg';
+import commonChallengePhoto from '../assets/commonChallenge.jpg';
 import axios from "axios";
 import {Link} from "react-router-dom";
 

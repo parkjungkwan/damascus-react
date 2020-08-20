@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as BRouter, Route} from 'react-router-dom';
 import {Box,Button,Heading,Layer,Menu,ResponsiveContext,Text} from 'grommet';
 import { FormClose, Menu as MenuIcon } from 'grommet-icons';
-import logo from './assets/logo.png';
+import logo from '../assets/logo.png';
 import Main from './Main';
 import SignUpType from './Member/SignUpType';
 import MemberLogin from './Member/Login';
